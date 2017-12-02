@@ -19,11 +19,6 @@ export class AppComponent {
   }
 
   getLocations(): MyLocation[] {
-    // return [
-    //   {latitude: 38.832229, longitude: -77.475889}, 
-    //   {latitude: 38.831554, longitude: -77.312089}, 
-    //   {latitude: 51.678418, longitude: 7.809007}
-    // ];
     let value: MyLocation[];
     this.service.getLocations().subscribe(result => value = result);
     return value;
