@@ -1,5 +1,6 @@
 #!flask/bin/python
 from flask import Flask, Response, jsonify
+from flask_cors import CORS, cross_origin
 import json
 
 import requests
@@ -25,7 +26,10 @@ class MyLocation():
 
 app = Flask(__name__)
 
+cors = CORS(app, resources={r"/": {"origins": "http://localhost:5000"}})
+
 @app.route('/')
+@cross_origin(origin='localhost',headers=['Content- Type','Authorization'])
 def get_locations():
     return read_locations()
 
@@ -34,11 +38,14 @@ def get_locations():
 def read_locations():
     my_locs = []
     for line in urllib2.urlopen('http://108.44.193.253:12000/IP.txt'):
-        geo = line.split(",")
-        my_locs.append(MyLocation(latitude=float(geo[0]), longitude=float(geo[1])))
+        if line.find(',') > -1:  # try to account for empty lines
+            geo = line.split(",")
+            my_locs.append(MyLocation(latitude=float(geo[0]), longitude=float(geo[1])))
 
     # return Response(json.dumps(locs), mimetype='application/json')
-    return jsonify(locs = [l.serialize() for l in my_locs])
+    response = jsonify(locs = [l.serialize() for l in my_locs])
+    response.headers.add('Access-Control-Allow-Origin', '*')  # allow CORS
+    return response
 
 if __name__ == '__main__':
     app.run(debug=True)

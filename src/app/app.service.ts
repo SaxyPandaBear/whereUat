@@ -11,11 +11,16 @@ export class AppService {
 
     constructor(private http: HttpClient) {}
 
-    getLocations(): Observable<MyLocation[]> {
-        return observableOf([
-            {latitude: 38.832229, longitude: -77.475889}, 
-            {latitude: 38.831554, longitude: -77.312089}, 
-            {latitude: 51.678418, longitude: 7.809007}
-          ]);
+    getLocations(): MyLocation[] {
+        // return observableOf([
+        //     {latitude: 38.832229, longitude: -77.475889}, 
+        //     {latitude: 38.831554, longitude: -77.312089}, 
+        //     {latitude: 51.678418, longitude: 7.809007}
+        //   ]);
+        let locs: MyLocation[]= [];
+        this.http.get('localhost:5000/').subscribe(data => {
+            console.log('Data is', data);
+        });
+        return locs
     }
 }

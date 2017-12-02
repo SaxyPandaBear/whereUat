@@ -15,13 +15,11 @@ export class AppComponent {
 
   ngOnInit() {
     this.locations = this.getLocations();
-    console.log(this.locations)
+    console.log(this.locations);
   }
 
   getLocations(): MyLocation[] {
-    let value: MyLocation[];
-    this.service.getLocations().subscribe(result => value = result);
-    return value;
+    return this.service.getLocations();
   }
 }
 
