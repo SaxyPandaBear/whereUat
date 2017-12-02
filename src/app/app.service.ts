@@ -2,7 +2,7 @@ import { Injectable } from "@angular/core";
 import { MyLocation } from "./app.component";
 import { Observable } from "rxjs/Observable";
 import {of as observableOf} from 'rxjs/observable/of';
-import { HttpClient } from "selenium-webdriver/http";
+import { HttpClient } from "@angular/common/http";
 
 @Injectable()
 export class AppService {
