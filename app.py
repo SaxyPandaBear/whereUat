@@ -26,10 +26,9 @@ class MyLocation():
 
 app = Flask(__name__)
 
-cors = CORS(app, resources={r"/": {"origins": "http://localhost:5000"}})
+cors = CORS(app)
 
 @app.route('/')
-@cross_origin(origin='localhost',headers=['Content- Type','Authorization'])
 def get_locations():
     return read_locations()
 
