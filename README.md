@@ -1,27 +1,21 @@
-# WhereYouIs
+whereUat
+========
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.5.5.
+Takes logged geographical coordinates from IPs that access an HTTP file server and places markers on a map to visualize where it's coming from.
 
-## Development server
+## Setup
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+- Backend:
 
-## Code scaffolding
+    1. Install [Python 2.7.*](https://www.python.org/)
+    2. Use pip to install flask: `pip install flask`
+    3. Run app.py: `python app.py`
+    4. The backend runs at `localhost:5000` in your browser.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+- Frontend:
+	
+	1. Install [Node.js which has NPM prepackaged with it](https://nodejs.org/en/) - This project uses Node.js version 9.2.0
+	2. Use npm to install [Angular CLI](https://cli.angular.io/)
+		- `npm install -g @angular/cli`
+	3. In the root directory of the project, run `ng serve` to start the frontend.
+	4. The frontend runs at `localhost:4200` in your browser.
