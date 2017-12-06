@@ -1,6 +1,18 @@
 import pyipinfoio
 from socket import *
 import sys # In order to terminate the program
+
+
+# takes geographic information from IPInfo, and opens the IP file.
+# if the new location is not already in our file, we add it.
+# otherwise, nothing happens
+def log_location(loc):
+	f = open("IP.txt", "a")
+	locs = f.read().splitlines()
+	if loc in locs:
+		f.write(loc + '\n')
+	f.close()
+
 serverSocket = socket(AF_INET, SOCK_STREAM)
 
 #Prepare a sever socket
@@ -11,21 +23,23 @@ print('Ready to serve...')
 
 while True:
 	
-	print('\n\nWaiting..')
+	print '\n\nWaiting..'
 	connectionSocket, addr = serverSocket.accept()
 	print 'Connection from ',addr
 
-	ff = open("IP.txt","a")
 	t = str(addr)
 	t = t[1:t.find(',')].strip('\'')
 	#print('ip address:  ', t)
 	
+	# IMPORTANT: ipinfo relies on the 'curl' command, which does not exist on Windows machines
+	# In order for this to work, the script must be run on a Unix / Linux box.
 	ip = pyipinfoio.IPLookup()  # get info on IP
-	varr = ip.lookup(t, 'loc')  # look specifically for the location information
-        ff.write(varr+'\n')
+	location = ip.lookup(t, 'loc')  # look specifically for the location information
+
+	if location_is_logged(location):
+		with open("IP.txt", "a") as f:
+			f.write('%s\n' % location)
 	
-	#print(varr)
-        ff.close()
 	try:
 		message = connectionSocket.recv(1024)
 		
