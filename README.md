@@ -5,12 +5,17 @@ Takes logged geographical coordinates from IPs that access an HTTP file server a
 
 ## Setup
 
-- Backend:
+- Backend and Server-side code:
 
     1. Install [Python 2.7.*](https://www.python.org/)
-    2. Use pip to install flask and flask_cors: `pip install flask` and `pip install flask_cors`
-    3. Run app.py: `python app.py`
-    4. The backend runs at `localhost:5000` in your browser.
+    2. Use pip to install flask and flask_cors for backend: `pip install flask` and `pip install flask_cors`
+	3. Import pyipinfo for the server: `pip install pyipinfo`
+		- This wrapper to the IPInfo API requires the use of `curl` so this code doesn't work on any system that 
+		  doesn't have access to the `curl` command
+    4. Run app.py and httpfileserver.py: `python app.py`, `python httpfileserver.py`
+		- You can run either or both scripts in the background using `nohup` or `&`
+		- `python app.py & python httpfileserver.py &` runs both scripts in the background
+    5. The backend runs at `localhost:5000` in your browser.
 
 - Frontend:
 	
@@ -19,3 +24,9 @@ Takes logged geographical coordinates from IPs that access an HTTP file server a
 		- `npm install -g @angular/cli`
 	3. In the root directory of the project, run `npm install` to get all of the required dependencies, and run `ng serve` to start the frontend.
 	4. The frontend runs at `localhost:4200` in your browser.
+
+### Starting up the full application
+
+```bash
+python app.py & python httpfileserver.py & ng serve
+```

@@ -52,7 +52,7 @@ def insert_to_db(data):
 		geo = str(data['loc']).split(',')
 		lat = float(geo[0])
 		lng = float(geo[1])
-		freq = 1
+		freq = 1  # a new row always starts with a frequency of 1
 		values = (ip, host, city, country, lat, lng, freq)  # make a tuple of the data to insert
 		db.execute('INSERT INTO ipdata VALUES (?,?,?,?,?,?,?)', values)
 	# save whatever we just changed in the database
