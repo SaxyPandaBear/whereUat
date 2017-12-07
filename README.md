@@ -28,5 +28,5 @@ Takes logged geographical coordinates from IPs that access an HTTP file server a
 ### Starting up the full application
 
 ```bash
-python app.py & python httpfileserver.py & ng serve
+python httpfileserver.py & python app.py & ng serve
 ```
