@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { AppService } from './app.service';
 import { Observable } from 'rxjs/Observable';
+import { GeolocationPayload, Geolocation } from './models';
 
 @Component({
   selector: 'app-root',
@@ -8,10 +9,11 @@ import { Observable } from 'rxjs/Observable';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  locations$: Observable<Payload>;
+  locations$: Observable<GeolocationPayload>;
+  // lat, lng coordinates point to GMU Fairfax campus
   lat: number = 38.831554;
   lng: number = -77.312089;
-  locations: MyLocation[] = [];
+  locations: Geolocation[] = [];
 
   constructor(private service: AppService) {}
 
@@ -21,13 +23,4 @@ export class AppComponent {
       this.locations = data.locs;
     });
   }
-}
-
-export class Payload {
-  locs: MyLocation[];
-}
-
-export class MyLocation {
-  latitude: number;
-  longitude: number;
 }

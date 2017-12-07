@@ -1,8 +1,8 @@
 import { Injectable } from "@angular/core";
-import { MyLocation, Payload } from "./app.component";
 import { Observable } from "rxjs/Observable";
-import {of as observableOf} from 'rxjs/observable/of';
+import {of as observableOf} from 'rxjs/observable/of'; // for mocking responses
 import { HttpClient } from "@angular/common/http";
+import { GeolocationPayload } from "./models";
 
 @Injectable()
 export class AppService {
@@ -11,12 +11,7 @@ export class AppService {
 
     constructor(private http: HttpClient) {}
 
-    getLocations(): Observable<Payload> {
-        // return observableOf([
-        //     {latitude: 38.832229, longitude: -77.475889}, 
-        //     {latitude: 38.831554, longitude: -77.312089}, 
-        //     {latitude: 51.678418, longitude: 7.809007}
-        //   ]);
-        return this.http.get<Payload>('http://localhost:5000/');
+    getLocations(): Observable<GeolocationPayload> {
+        return this.http.get<GeolocationPayload>('http://localhost:5000/location');
     }
 }
