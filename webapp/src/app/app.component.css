@@ -11,3 +11,7 @@
 .menu-button-padding {
     margin: 0% 1% 0% 1%;
 }
+
+.empty-space {
+    flex: 1 1 auto;
+}

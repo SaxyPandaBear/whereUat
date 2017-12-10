@@ -8,11 +8,11 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { AgmCoreModule } from '@agm/core';
 import { AppService } from './app.service';
 import {HttpClientModule} from '@angular/common/http';
-import { MapComponent } from './map/map.component';
 
 import { MatToolbarModule, MatButtonModule, MatTableModule, MatPaginatorModule, MatSortModule } from '@angular/material'
 import { AppRoutingModule } from './app-routing.module';
-import { AboutComponent } from './about/about.component';
+
+import { MapComponent } from './map/map.component';
 import { IpsComponent } from './ips/ips.component';
 
 @NgModule({
@@ -34,7 +34,7 @@ import { IpsComponent } from './ips/ips.component';
     MatSortModule
   ],
   providers: [ AppService ],
-  declarations: [ AppComponent, MapComponent, AboutComponent, IpsComponent ],
+  declarations: [ AppComponent, MapComponent, IpsComponent ],
   bootstrap: [ AppComponent ]
 })
 export class AppModule {}
