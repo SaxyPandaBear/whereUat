@@ -34,12 +34,14 @@ Takes logged geographical coordinates from IPs that access an HTTP file server a
 python httpfileserver.py & python app.py & ng serve
 ```
 
-This ignores all of the output to stdout except for the output of `ng serve`
+This ignores all of the output to stdout except for the output of `ng serve`. A keyboard interrupt, `CTRL-C`usually, will only terminate the Angular application. Python processes need to be manually terminated. 
+
+- `kill [script PID]`
 
 Equivalent `nohup` command
 
 ```bash
-nohup python
+nohup python httpfileserver.py & python app.py & ng serve &
 ```
 
-This writes output to stdout into a `nohup.out` file.
+This writes output to stdout into a `nohup.out` file. `nohup` will let processes continue running even after the terminal isn't open. This is useful for when running the script remotely, i.e.: on AWS.
