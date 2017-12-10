@@ -22,12 +22,24 @@ Takes logged geographical coordinates from IPs that access an HTTP file server a
 	1. Install [Node.js which has NPM prepackaged with it](https://nodejs.org/en/) - This project uses Node.js version 9.2.0
 	2. Use npm to install [Angular CLI](https://cli.angular.io/)
 		- `npm install -g @angular/cli`
-	3. In the root directory of the project, run `npm install` to get all of the required dependencies, and run `ng serve` to start the frontend.
+	3. In the webapp directory of the project, `/path/to/project/webapp/`, run `npm install` to get all of the required dependencies, and run `ng serve` to start the frontend.
+		- `npm install`
+		- `ng serve`
 	4. The frontend runs at `localhost:4200` in your browser.
-		- A shorthand for this is to do `ng serve -o`, which will automatically open your default browser to `localhost:4200`
+		- `ng serve -o` will automatically open your default browser to `localhost:4200`
 
 ### Starting up the full application
 
 ```bash
 python httpfileserver.py & python app.py & ng serve
 ```
+
+This ignores all of the output to stdout except for the output of `ng serve`
+
+Equivalent `nohup` command
+
+```bash
+nohup python
+```
+
+This writes output to stdout into a `nohup.out` file.
