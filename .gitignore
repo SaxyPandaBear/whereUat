@@ -3,6 +3,9 @@
 # database data
 whereuat.sqlite3
 
+# nohup output
+nohup.out
+
 # python cache files
 *.pyc
 
