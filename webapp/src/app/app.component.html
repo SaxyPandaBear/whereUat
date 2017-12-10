@@ -1,5 +1,9 @@
-<!-- this creates a google map on the page with the given lat/lng from -->
-<!-- the component as the initial center of the map: -->
-<agm-map [latitude]="lat" [longitude]="lng" [zoom]="4">
-    <agm-marker *ngFor="let loc of locations" [latitude]="loc.latitude" [longitude]="loc.longitude" ></agm-marker>
-</agm-map>
+<mat-toolbar color="primary">
+    <h3 class="app-name">whereUat</h3>
+    <span class="menu-buttons">
+        <button mat-raised-button color="accent" routerLink="map" class="menu-button-padding">Map</button>
+        <button mat-raised-button color="accent" routerLink="ips" class="menu-button-padding">IPs</button>
+        <button mat-raised-button color="accent" routerLink="about" class="menu-button-padding">About</button>
+    </span>
+</mat-toolbar>
+<router-outlet></router-outlet>

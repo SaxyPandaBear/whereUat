@@ -24,6 +24,7 @@ Takes logged geographical coordinates from IPs that access an HTTP file server a
 		- `npm install -g @angular/cli`
 	3. In the root directory of the project, run `npm install` to get all of the required dependencies, and run `ng serve` to start the frontend.
 	4. The frontend runs at `localhost:4200` in your browser.
+		- A shorthand for this is to do `ng serve -o`, which will automatically open your default browser to `localhost:4200`
 
 ### Starting up the full application
 

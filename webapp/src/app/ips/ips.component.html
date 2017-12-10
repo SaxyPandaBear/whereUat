@@ -1,0 +1,39 @@
+<div class="table-container">
+  <mat-table #table [dataSource]="dataSource" matSort>
+    <!-- IP -->
+    <ng-container matColumnDef="ip">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> IP </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.ip}} </mat-cell>
+    </ng-container>
+
+    <!-- Host -->
+    <ng-container matColumnDef="host">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Host </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.hostname}} </mat-cell>
+    </ng-container>
+
+    <!-- City -->
+    <ng-container matColumnDef="city">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> City </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.city}} </mat-cell>
+    </ng-container>
+
+    <!-- Country -->
+    <ng-container matColumnDef="country">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Country </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.country}} </mat-cell>
+    </ng-container>
+
+    <!-- Frequency -->
+    <ng-container matColumnDef="frequency">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Frequency </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.freq}} </mat-cell>
+    </ng-container>
+
+    <mat-header-row *matHeaderRowDef="columns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: columns;"></mat-row>
+  </mat-table>
+
+  <mat-paginator #paginator [pageSize]="10" [pageSizeOptions]="[5, 10, 20]">
+  </mat-paginator>
+</div>

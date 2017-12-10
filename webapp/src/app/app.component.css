@@ -1,3 +1,13 @@
-agm-map {
-    height: 100%;
+.app-name {
+    margin-right: 2%;
+}
+
+.menu-buttons {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.menu-button-padding {
+    margin: 0% 1% 0% 1%;
 }
