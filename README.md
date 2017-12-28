@@ -21,7 +21,8 @@ Takes logged geographical coordinates from IPs that access an HTTP file server a
 	
 	1. Install [Node.js which has NPM prepackaged with it](https://nodejs.org/en/) - This project uses Node.js version 9.2.0
 	2. Use npm to install [Angular CLI](https://cli.angular.io/)
-		- `npm install -g @angular/cli`
+		- To install just in the project, in the `webapp` directory, do `npm install @angular/cli`
+		- To install globally for your development environment, do `npm install -g @angular/cli`
 	3. In the webapp directory of the project, `/path/to/project/webapp/`, run `npm install` to get all of the required dependencies, and run `ng serve` to start the frontend.
 		- `npm install`
 		- `ng serve`
